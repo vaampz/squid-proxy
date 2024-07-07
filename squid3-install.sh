@@ -180,7 +180,10 @@ elif [ $SOK_OS == "debian12" ]; then
     systemctl enable squid
     systemctl restart squid
 elif [ $SOK_OS == "centos7" ]; then
-    echo "CentOS Linux 7 reached End of Life (EOL) nn June 30, 2024. Please use to newer OS"
+    echo
+    echo "CentOS Linux 7 reached End of Life (EOL) nn June 30, 2024. Please use to newer OS."
+    echo
+    echo "You can find supported operating systems at https://serverok.in/squid"
     exit 1
 elif [ "$SOK_OS" == "centos8" ] || [ "$SOK_OS" == "almalinux8" ] || [ "$SOK_OS" == "almalinux9" ]; then
     yum install squid httpd-tools wget -y
