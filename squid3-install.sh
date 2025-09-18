@@ -168,12 +168,22 @@ elif [ $SOK_OS == "debian11" ]; then
     systemctl enable squid
     systemctl restart squid
 elif [ $SOK_OS == "debian12" ]; then
-    # OS = Debian GNU/Linux 12 (bookworm)
     /bin/rm -rf /etc/squid
     /usr/bin/apt update > /dev/null 2>&1
     /usr/bin/apt -y install apache2-utils squid  > /dev/null 2>&1
     touch /etc/squid/passwd
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/conf.d/serverok.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/conf/debian12.conf
+    if [ -f /sbin/iptables ]; then
+        /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+    fi
+    systemctl enable squid
+    systemctl restart squid
+elif [ $SOK_OS == "debian13" ]; then
+    /bin/rm -rf /etc/squid
+    /usr/bin/apt update > /dev/null 2>&1
+    /usr/bin/apt -y install apache2-utils squid  > /dev/null 2>&1
+    touch /etc/squid/passwd
+    /usr/bin/wget -q --no-check-certificate -O /etc/squid/conf.d/serverok.conf https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/conf/debian13.conf
     if [ -f /sbin/iptables ]; then
         /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
     fi

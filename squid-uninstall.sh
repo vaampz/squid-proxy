@@ -81,6 +81,11 @@ elif [ $SOK_OS == "debian12" ]; then
     /usr/bin/apt -y remove --purge squid squid-common squid-langpack
     /bin/rm -rf /etc/squid/
     /bin/rm -rf /var/spool/squid
+elif [ $SOK_OS == "debian13" ]; then
+    echo "Uninstalling Squid Proxy on Debian 13"
+    /usr/bin/apt -y remove --purge squid squid-common squid-langpack
+    /bin/rm -rf /etc/squid/
+    /bin/rm -rf /var/spool/squid
 elif [ $SOK_OS == "centos7" ]; then
     yum remove squid -y
     /bin/rm -rf /etc/squid/
