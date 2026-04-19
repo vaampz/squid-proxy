@@ -78,3 +78,4 @@ https://serverok.in/how-to-change-port-of-squid-proxy-server
 If you need professional assistance, reach out to
 
 https://serverok.in/contact
+# squid-proxy
