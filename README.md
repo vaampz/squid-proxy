@@ -12,11 +12,11 @@ Auto install Squid 3 proxy on following linux OS.
 
 ## Install Squid
 
-To install, run the script
+To automatically update your system, install squid, and apply the default configuration from this repository, run the following setup script:
 
-```
-wget https://raw.githubusercontent.com/serverok/squid-proxy-installer/master/squid3-install.sh -O squid3-install.sh
-sudo bash squid3-install.sh
+```bash
+wget https://raw.githubusercontent.com/vaampz/squid-proxy/main/setup-proxy.sh
+sudo bash setup-proxy.sh
 ```
 
 ## Videos - How to install Squid Proxy Server.
