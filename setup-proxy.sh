@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# Update package lists
-apt update
+echo "[*] Updating package lists..."
+apt update -y
 
-# Download the installation script (using the raw URL instead of the HTML blob)
-wget https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid3-install.sh
+echo "[*] Downloading the latest squid installation script..."
+wget -qO squid3-install.sh https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid3-install.sh
 
-# Execute the installation script
+echo "[*] Executing the installation script..."
 bash squid3-install.sh
 
-# Restart the squid service
+echo "[*] Restarting the Squid service to apply configurations..."
 systemctl restart squid
+
+echo "[+] Setup completed successfully!"
