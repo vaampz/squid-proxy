@@ -55,7 +55,7 @@ if [ $SOK_OS == "ubuntu2404" ]; then
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/conf/ubuntu-2204.conf
     if [ -f /sbin/iptables ]; then
-        /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+        /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     fi
     systemctl enable squid  > /dev/null 2>&1
     service squid restart
@@ -67,7 +67,7 @@ elif [ $SOK_OS == "ubuntu2204" ]; then
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/conf/ubuntu-2204.conf
     if [ -f /sbin/iptables ]; then
-        /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+        /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     fi
     service squid restart
     systemctl enable squid
@@ -79,7 +79,7 @@ elif [ $SOK_OS == "ubuntu2004" ]; then
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
     if [ -f /sbin/iptables ]; then
-        /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+        /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     fi
     service squid restart
     systemctl enable squid
@@ -90,7 +90,7 @@ elif [ $SOK_OS == "ubuntu1804" ]; then
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
-    /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+    /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     /sbin/iptables-save
     service squid restart
     systemctl enable squid
@@ -101,7 +101,7 @@ elif [ $SOK_OS == "ubuntu1604" ]; then
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
-    /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+    /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     service squid restart
     update-rc.d squid defaults
 elif [ $SOK_OS == "ubuntu1404" ]; then
@@ -111,7 +111,7 @@ elif [ $SOK_OS == "ubuntu1404" ]; then
     /bin/rm -f /etc/squid3/squid.conf
     /usr/bin/touch /etc/squid3/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid3/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
-    /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+    /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     service squid3 restart
     ln -s /etc/squid3 /etc/squid
     #update-rc.d squid3 defaults
@@ -125,7 +125,7 @@ elif [ $SOK_OS == "debian8" ]; then
     /bin/rm -f /etc/squid3/squid.conf
     /usr/bin/touch /etc/squid3/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid3/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
-    /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+    /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     service squid3 restart
     update-rc.d squid3 defaults
     ln -s /etc/squid3 /etc/squid
@@ -138,7 +138,7 @@ elif [ $SOK_OS == "debian9" ]; then
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
-    /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+    /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     systemctl enable squid
     systemctl restart squid
 elif [ $SOK_OS == "debian10" ]; then
@@ -150,7 +150,7 @@ elif [ $SOK_OS == "debian10" ]; then
     /bin/rm -f /etc/squid/squid.conf
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
-    /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+    /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     systemctl enable squid
     systemctl restart squid
 elif [ $SOK_OS == "debian11" ]; then
@@ -163,7 +163,7 @@ elif [ $SOK_OS == "debian11" ]; then
     /usr/bin/touch /etc/squid/blacklist.acl
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/squid.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/squid.conf
     if [ -f /sbin/iptables ]; then
-        /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+        /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     fi
     systemctl enable squid
     systemctl restart squid
@@ -174,7 +174,7 @@ elif [ $SOK_OS == "debian12" ]; then
     touch /etc/squid/passwd
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/conf.d/serverok.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/conf/debian12.conf
     if [ -f /sbin/iptables ]; then
-        /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+        /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     fi
     systemctl enable squid
     systemctl restart squid
@@ -185,7 +185,7 @@ elif [ $SOK_OS == "debian13" ]; then
     touch /etc/squid/passwd
     /usr/bin/wget -q --no-check-certificate -O /etc/squid/conf.d/serverok.conf https://raw.githubusercontent.com/vaampz/squid-proxy/main/conf/debian13.conf
     if [ -f /sbin/iptables ]; then
-        /sbin/iptables -I INPUT -p tcp --dport 3128 -j ACCEPT
+        /sbin/iptables -I INPUT -p tcp --dport 1337 -j ACCEPT
     fi
     systemctl enable squid
     systemctl restart squid
@@ -203,7 +203,7 @@ elif [ "$SOK_OS" == "centos8" ] || [ "$SOK_OS" == "almalinux8" ] || [ "$SOK_OS" 
     systemctl enable squid
     systemctl restart squid
     if [ -f /usr/bin/firewall-cmd ]; then
-        firewall-cmd --zone=public --permanent --add-port=3128/tcp > /dev/null 2>&1
+        firewall-cmd --zone=public --permanent --add-port=1337/tcp > /dev/null 2>&1
         firewall-cmd --reload > /dev/null 2>&1
     fi
 elif [ "$SOK_OS" == "centos8s" ]; then
@@ -214,7 +214,7 @@ elif [ "$SOK_OS" == "centos8s" ]; then
     systemctl enable squid  > /dev/null 2>&1
     systemctl restart squid > /dev/null 2>&1
     if [ -f /usr/bin/firewall-cmd ]; then
-        firewall-cmd --zone=public --permanent --add-port=3128/tcp > /dev/null 2>&1
+        firewall-cmd --zone=public --permanent --add-port=1337/tcp > /dev/null 2>&1
         firewall-cmd --reload > /dev/null 2>&1
     fi
 elif [ "$SOK_OS" == "centos9" ]; then
@@ -225,7 +225,7 @@ elif [ "$SOK_OS" == "centos9" ]; then
     systemctl enable squid  > /dev/null 2>&1
     systemctl restart squid > /dev/null 2>&1
     if [ -f /usr/bin/firewall-cmd ]; then
-        firewall-cmd --zone=public --permanent --add-port=3128/tcp > /dev/null 2>&1
+        firewall-cmd --zone=public --permanent --add-port=1337/tcp > /dev/null 2>&1
         firewall-cmd --reload > /dev/null 2>&1
     fi
 fi
